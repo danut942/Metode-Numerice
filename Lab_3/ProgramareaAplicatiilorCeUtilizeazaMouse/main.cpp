@@ -49,4 +49,45 @@ void MouseInit()
     MOUSE(ax,bx,cx,dx,bp,si,di,ds,es,flags);
 }
 
-// Aceasta functie
+// Aceasta functie decrementeaza flagul de vizibilitate. Cat timp flagul este > 0, cursorul este vizibil.
+// Deoarece aceasta functie decrementeaza flagul de vizibilitate, functie MouseShow()(1h) trebuie apelata de atatea ori de
+// cate a fost apelata functia MouseHide()(2h)(mai putin in cazul in care se utilizeaza scurtatura de resetare, care
+// reseteaza flagul de vizibilitate la -1).
+// ATENTIE: Procesul invers nu este valabil (functia MouseHide()) actioneaza intotdeauna, indiferent de numarul
+// anterior de apeluri ale functiei MouseShow()).
+
+void MouseHide()
+{
+    int ax=2, bx, cx, dx, bp, si, di, ds, es, flags;
+    MOUSE(ax, bx, cx, dx, bp, si, di, ds, es, flags);
+}
+
+// Aceasta functie este similara lui MouseInit().
+void MouseShow()
+{
+    int ax=2, bx, cx, dx, bp, si, di, ds, es, flags;
+    MOUSE(ax, bx, cx, dx, bp, si, di, ds, es, flags);
+}
+
+// Functia returneaza pozitia curenta a cursorului si starea curenta a butoanelor: bitul 0 setat pentru buton stang
+// apasat, bitul 1 setat pentru buton drept apasat, iar la Logitech si Mouse Systems bitul 2 setat pentru butonul din
+// mijloc apasat. A se observa apelul prin referinta al fnuctiei.
+
+void MouseData (int& but, int& x, int& y)
+{
+    int ax=3, bx, cx, dx, bp, si, di, ds, es, flags;
+    MOUSE(ax, bx, cx, dx, bp, si, di, ds, es, flags);
+    but=bx; x=cx; y=dx;
+}
+
+void MouseMove(int x, int y)
+{
+    int ax=4,bx,cx=x,dx=y,bp,si,di,ds,es,flags;
+    MOUSE(ax, bx, cx, dx, bp, si, di, ds, es, flags);
+}
+
+void MouseCursSet()
+{
+    int ax=9,bx,cx,dx=1,bp,si,di,ds,es,flags;
+    MOUSE(ax, bx, cx, dx, bp, si, di, ds, es, flags);
+}

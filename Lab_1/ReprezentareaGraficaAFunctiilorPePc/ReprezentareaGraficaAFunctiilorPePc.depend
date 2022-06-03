@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1653128307 source:d:\###facultate\metode-numerice\lab_1\reprezentareagraficaafunctiilorpepc\main.cpp
+	<stdio.h>
+	<conio.h>
+	<graphics.h>
+	<stdlib.h>
+

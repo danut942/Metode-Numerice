@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651243212 source:d:\###facultate\metode-numerice\lab_2\rezolvareaecuatiiloralgebriceprinmetodaaproxsuccesive\main.cpp
+	<stdio.h>
+	<conio.h>
+	<graphics.h>
+	<math.h>
+

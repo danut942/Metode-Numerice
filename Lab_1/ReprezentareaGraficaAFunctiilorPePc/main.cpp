@@ -35,10 +35,10 @@ int main()
     int gd=DETECT, gm, col=7, r=400;
     float i, x, y, xx, yy, ax=1, ay=1, D=100, d=ay*D;
 
-    system ("cls");
+    system ("clear");
 
-    initgraph(&gd, &gm, "c:\Program Files\CodeBlocks\MinGW\x86_64-w64-mingw32\lib");
-
+   // initgraph(&gd, &gm, "c:\Program Files\CodeBlocks\MinGW\x86_64-w64-mingw32\lib");
+    initgraph(&gd,&gm,"d:\\borlandc\\bgi");
     system ("cls"); //Implicit LIGHGRAY
 
     setcolor(RED);
